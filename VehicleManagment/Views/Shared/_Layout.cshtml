@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Vehicle Managment Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="~/Content/themes/default-grid.css" rel="stylesheet" />
+        <link href="~/Content/Site.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+    </head>
+    <body>
+        <header>
+           <div class="content-wrapper">
+                <div class="navbar navbar-inverse navbar-fixed-top" class="float-left">
+                    <p class="site-title">@Html.ActionLink("Vehicle Managment System", "Home", "Home")</p>
+                </div>
+                
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year -Vehicle Managment Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

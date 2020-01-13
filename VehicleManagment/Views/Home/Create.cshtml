@@ -1,0 +1,83 @@
+﻿@model VehicleManagment.Models.Car
+
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Car";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <div class="form-group"><h3  class="col-md-offset-2 col-md-10 "><b>Create a new car by entering the informtion below.</b></h3></div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.common.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model =>  model.common.Make, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+                @Html.ValidationMessageFor(model =>  model.common.Make, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.common.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.common.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model =>  model.common.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.common.Engine, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.common.Engine, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.ValidationMessageFor(model => model.common.Engine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.common.VehicleType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model =>model.common.VehicleType,  new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.ValidationMessageFor(model => model.common.VehicleType, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoOfWheels, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model =>model.NoOfWheels,  new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.ValidationMessageFor(model => model.NoOfWheels, "", new { @class = "text-danger" })
+            </div>
+        </div>
+         <div class="form-group">
+            @Html.LabelFor(model => model.Doors, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model =>model.Doors,  new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.ValidationMessageFor(model => model.Doors, "", new { @class = "text-danger" })
+            </div>
+        </div>
+         <div class="form-group">
+            @Html.LabelFor(model => model.BodyType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model =>model.BodyType, new { htmlAttributes = new { @class = "control-label col-md-2" } })
+                @Html.ValidationMessageFor(model => model.BodyType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Home")
+</div>
+

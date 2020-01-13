@@ -1,0 +1,95 @@
+﻿@model IEnumerable<VehicleManagment.Models.Car>
+
+
+@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $('#ListVehType').on('change', function () {
+                 var index = $(this).find('option:selected').index();
+                 if (index > 0) {
+                    
+                     window.location.href = '@Url.Action("Create", "Home")';
+                 } else {
+                     alert('Select the vehicle type from the dropdown');
+                     return;
+                 }
+             })
+
+         });
+    </script>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>GetList</title>
+</head>
+<body>
+
+   <div class="row">
+     <div class="col-md-3"><label>Select to create new Vehicle:</label>
+     </div>
+ @Html.DropDownList("ListVehType", ViewBag.ListVehType as SelectList,"Select Vehicle Type",  new { @class = "control-label   col-md-3" })  
+
+    </div>
+   <div class="float-center">
+    <h2><Span style="color:blue"> List of Inventory Available</h2> <br /> </div>
+    <table class="table table-striped" >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.common.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.common.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.common.Engine)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.common.VehicleType)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfWheels)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BodyType)
+            </th>
+                   </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.common.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.common.Model)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.common.Engine)
+            </td>
+             @*<td>
+                @Html.DisplayFor(modelItem => item.common.VehicleType)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfWheels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BodyType)
+            </td>
+           
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
